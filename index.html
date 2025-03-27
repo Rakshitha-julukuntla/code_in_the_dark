@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code in the Dark</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div id="welcome-screen">
+        <h1>Code in the Dark</h1>
+        <label>Enter Player Name:</label>
+        <input type="text" id="player-name">
+
+        <div id="instructions">
+            <h3>How to Play:</h3>
+            <ol>
+                <li>Memorize the buggy code shown for 20 seconds</li>
+                <li>After the code disappears, type the corrected version</li>
+                <li>You can reveal the code 3 times per game if needed</li>
+                <li>You need to type only the errored line</li>
+                <li>Score 20 points for each correct answer</li>
+                <li>Lose 2 points for each wrong attempt</li>
+                <li>Complete all 3 questions to finish the game</li>
+                <li>Overall time will be calculated for evaluation</li>
+            </ol>
+        </div>
+        
+        <div class="language-selection">
+            <h3>Select Language:</h3>
+            <label>
+                <input type="radio" name="language" value="python" checked> Python
+            </label>
+            <label>
+                <input type="radio" name="language" value="c"> C
+            </label>
+            <label>
+                <input type="radio" name="language" value="java"> Java
+            </label>
+        </div>
+        
+        <button id="start-btn" onclick="startGame()">Start Game</button>
+        
+        
+    </div>
+    <div id="game-container" style="display: none;">
+        <!-- Remove the hardcoded "Fix the Python Code!" heading -->
+        <p id="game-timer">Time: 0:00</p>
+        <p id="game-score">Score: 0</p>
+        <div id="code-display"></div>
+        <p id="timer"></p>
+        <textarea id="code-box" placeholder="Type the corrected line here..."></textarea>
+        <br>
+        <button id="submit-btn" onclick="checkAnswer()">Submit</button>
+        <button id="reveal-btn" onclick="revealCode()">Reveal Code (<span id="reveal-count">3</span> left)</button>
+        <button id="skip-button">Skip</button>
+        <p id="result-message"></p>
+    </div>
+    <script src="script.js"></script>
+
+</body>
+</html>
